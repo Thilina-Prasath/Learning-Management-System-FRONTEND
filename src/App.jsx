@@ -1,6 +1,5 @@
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import RegisterPage from "./page/register";
 import { LoginPage } from "./page/login";
 import HomePage from "./page/Home";
 import CoursePage from "./page/CoursePage";
@@ -11,6 +10,7 @@ import About from "./page/about";
 import ReviewsPage from "./page/Review";
 import ReviewAdminPanel from "./page/admin/ReviewAdminPanel";
 import ProfilePage from "./page/profilePage";
+import { RegisterPage } from "./page/register";
 
 function App() {
   return (
