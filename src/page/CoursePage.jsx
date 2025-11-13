@@ -14,7 +14,8 @@ import {
 } from "lucide-react";
 import Header from "../components/header";
 
-const API_URL = "http://localhost:5000/api";
+// ✅ Use environment variable instead of localhost
+const API_URL = import.meta.env.VITE_BACKEND_URL + "/api";
 
 export default function CoursePage() {
   const { id } = useParams();
@@ -31,6 +32,8 @@ export default function CoursePage() {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
+
+      // ✅ use deployed API URL
       const res = await fetch(`${API_URL}/course/${id}`, {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
@@ -51,9 +54,7 @@ export default function CoursePage() {
   };
 
   const handlePdfDownload = (url) => {
-    if (url) {
-      window.open(url, "_blank");
-    }
+    if (url) window.open(url, "_blank");
   };
 
   if (loading)
@@ -62,7 +63,10 @@ export default function CoursePage() {
         <div className="text-center">
           <div className="relative inline-block">
             <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-200 border-t-blue-600"></div>
-            <div className="absolute inset-0 rounded-full h-16 w-16 border-4 border-transparent border-t-purple-600 animate-spin" style={{ animationDirection: "reverse", animationDuration: "1.5s" }}></div>
+            <div
+              className="absolute inset-0 rounded-full h-16 w-16 border-4 border-transparent border-t-purple-600 animate-spin"
+              style={{ animationDirection: "reverse", animationDuration: "1.5s" }}
+            ></div>
           </div>
           <p className="mt-6 text-lg font-medium text-gray-700 animate-pulse">
             Loading your course...

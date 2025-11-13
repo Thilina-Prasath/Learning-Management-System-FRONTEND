@@ -9,46 +9,49 @@ export function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+  // ✅ use environment variable instead of localhost
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
   async function handleLogin() {
-  if (!email || !password) {
-    alert("Please fill in all fields");
-    return;
-  }
-
-  setIsLoading(true);
-
-  try {
-    localStorage.clear(); 
-
-    const res = await axios.post("http://localhost:5000/api/student/login", {
-      email,
-      password,
-    });
-
-    console.log("Login response:", res.data);
-
-    // Store NEW token and role
-    localStorage.setItem("token", res.data.token);
-    localStorage.setItem("role", res.data.role);
-
-    // Trigger a storage event to update header
-    window.dispatchEvent(new Event('storage'));
-
-    // Navigate based on role
-    if (res.data.role === "admin") {
-      navigate("/admin");
-    } else {
-      navigate("/home");
+    if (!email || !password) {
+      alert("Please fill in all fields");
+      return;
     }
-  } catch (error) {
-    console.error("Login failed:", error);
-    alert(
-      error?.response?.data?.message || "Login failed. Please try again."
-    );
-  } finally {
-    setIsLoading(false);
+
+    setIsLoading(true);
+
+    try {
+      localStorage.clear();
+
+      const res = await axios.post(`${API_BASE_URL}/api/student/login`, {
+        email,
+        password,
+      });
+
+      console.log("Login response:", res.data);
+
+      // Store NEW token and role
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("role", res.data.role);
+
+      // Trigger a storage event to update header
+      window.dispatchEvent(new Event("storage"));
+
+      // Navigate based on role
+      if (res.data.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/home");
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
+      alert(
+        error?.response?.data?.message || "Login failed. Please try again."
+      );
+    } finally {
+      setIsLoading(false);
+    }
   }
-}
 
   return (
     <div className="h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 relative overflow-hidden">

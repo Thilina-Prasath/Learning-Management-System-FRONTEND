@@ -1,95 +1,76 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export default function RegisterPage() {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [course, setCourse] = useState('');
-    const [role, setRole] = useState('student'); // Add role selection
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [focusedField, setFocusedField] = useState('');
-    const [error, setError] = useState('');
-    const navigate = useNavigate();
+export function RegisterPage() {
+  const navigate = useNavigate();
 
-    // API Base URL - Update this to match your backend
-    const API_BASE_URL = 'http://localhost:5000';
+  // ✅ State management
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [course, setCourse] = useState("");
+  const [role, setRole] = useState("student");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
-    const validateForm = () => {
-        if (!firstName.trim()) {
-            setError('First name is required');
-            return false;
-        }
-        if (!lastName.trim()) {
-            setError('Last name is required');
-            return false;
-        }
-        if (!email.trim()) {
-            setError('Email is required');
-            return false;
-        }
-        if (!/\S+@\S+\.\S+/.test(email)) {
-            setError('Please enter a valid email address');
-            return false;
-        }
-        if (!password) {
-            setError('Password is required');
-            return false;
-        }
-        if (password.length < 6) {
-            setError('Password must be at least 6 characters long');
-            return false;
-        }
-        if (password !== confirmPassword) {
-            setError('Passwords do not match');
-            return false;
-        }
-        return true;
-    };
+  // ✅ Use your backend URL from .env
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
-    const handleRegister = async () => {
-        // Clear previous errors
-        setError('');
+  // ✅ Form validation
+  const validateForm = () => {
+    if (!firstName || !lastName || !email || !password) {
+      alert("Please fill in all required fields");
+      return false;
+    }
 
-        if (!validateForm()) {
-            return;
-        }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      alert("Please enter a valid email address");
+      return false;
+    }
 
-        setIsLoading(true);
-        
-        try {
-            // Fixed: Changed from /signup to /register and added missing fields
-            const response = await axios.post(`${API_BASE_URL}/api/student/signup`, {
-                firstName: firstName.trim(),
-                lastName: lastName.trim(),
-                email: email.trim(),
-                password,
-                course: course.trim() || "", // Include course field
-                role // Include role field
-            });
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters long");
+      return false;
+    }
 
-            console.log("Registration Successful");
-            console.log(response.data);
-            
-            alert("Registration Successful! You can now login.");
-            
-            // Redirect to login page
-            navigate('/login');
-            
-        } catch (error) {
-            console.error('Registration failed:', error);
-            const errorMessage = error?.response?.data?.message || 'Registration failed. Please try again.';
-            setError(errorMessage);
-            alert(errorMessage);
-        } finally {
-            setIsLoading(false);
-        }
-    };
+    return true;
+  };
+
+  // ✅ Handle registration
+  const handleRegister = async () => {
+    setError("");
+
+    if (!validateForm()) return;
+
+    setIsLoading(true);
+
+    try {
+      const response = await axios.post(`${API_BASE_URL}/api/student/signup`, {
+        firstName: firstName.trim(),
+        lastName: lastName.trim(),
+        email: email.trim(),
+        password,
+        course: course.trim() || "",
+        role,
+      });
+
+      console.log("Registration Successful:", response.data);
+
+      alert("🎉 Registration Successful! You can now log in.");
+      navigate("/login");
+    } catch (error) {
+      console.error("Registration failed:", error);
+      const errorMessage =
+        error?.response?.data?.message ||
+        "Registration failed. Please try again.";
+      setError(errorMessage);
+      alert(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 relative overflow-hidden">
