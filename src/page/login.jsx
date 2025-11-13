@@ -8,6 +8,7 @@ export function LoginPage() {
   const [focusedField, setFocusedField] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   // ✅ use environment variable instead of localhost
   const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
@@ -97,7 +98,7 @@ export function LoginPage() {
                   🔒
                 </div>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   onFocus={() => setFocusedField('password')}
@@ -106,6 +107,14 @@ export function LoginPage() {
                   disabled={isLoading}
                   className="w-full h-14 pl-12 pr-4 rounded-2xl bg-white/20 border border-white/30 placeholder-white/60 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 hover:bg-white/25 disabled:opacity-50"
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  disabled={isLoading}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/60 hover:text-white transition-colors duration-300 text-lg disabled:opacity-50"
+                  >
+                  {showPassword ? '🙈' : '👁️'}
+                </button>
               </div>
             </div>
 
