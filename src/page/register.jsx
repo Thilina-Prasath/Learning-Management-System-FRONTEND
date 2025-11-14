@@ -5,15 +5,19 @@ import { useNavigate } from "react-router-dom";
 export function RegisterPage() {
   const navigate = useNavigate();
 
-  // ✅ State management
+  // ✅ State management - ALL variables declared
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState(""); // ✅ ADDED
   const [course, setCourse] = useState("");
   const [role, setRole] = useState("student");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [focusedField, setFocusedField] = useState(""); // ✅ ADDED
+  const [showPassword, setShowPassword] = useState(false); // ✅ ADDED
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // ✅ ADDED
 
   // ✅ Use your backend URL from .env
   const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
@@ -32,6 +36,11 @@ export function RegisterPage() {
 
     if (password.length < 6) {
       alert("Password must be at least 6 characters long");
+      return false;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
       return false;
     }
 
