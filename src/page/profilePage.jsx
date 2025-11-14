@@ -459,7 +459,7 @@ export default function ProfilePage() {
                       {/* Password Change Button */}
                       <button 
                         onClick={handlePasswordChange}
-                        className="bg-gradient-to-r from-teal-600 to-green-800 hover:from-cyan-500-600 hover:to-green-700 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                        className="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-cyan-500-600 hover:to-green-700 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-2"
                       >
                         <span>🔒</span>
                         Change Password
