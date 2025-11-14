@@ -310,7 +310,7 @@ export default function HomePage() {
             icon: "📚",
             title: "Comprehensive Courses",
             desc: "Access a wide range of courses covering various topics and skill levels.",
-            gradient: "from-purple-500 to-pink-500"
+            gradient: "from-teal-500 to-green-500"
           },
           {
             icon: "💼",

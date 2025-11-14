@@ -52,7 +52,7 @@ function CourseCard({ course }) {
           </span>
           <Link 
             to={`/course/${course._id || course.id}`} 
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
+            className="bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-green-700 text-white px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
           >
             View Details
           </Link>

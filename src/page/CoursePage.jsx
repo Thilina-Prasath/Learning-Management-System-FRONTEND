@@ -64,7 +64,7 @@ export default function CoursePage() {
           <div className="relative inline-block">
             <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-200 border-t-blue-600"></div>
             <div
-              className="absolute inset-0 rounded-full h-16 w-16 border-4 border-transparent border-t-purple-600 animate-spin"
+              className="absolute inset-0 rounded-full h-16 w-16 border-4 border-transparent border-t-green-900 animate-spin"
               style={{ animationDirection: "reverse", animationDuration: "1.5s" }}
             ></div>
           </div>
@@ -90,7 +90,7 @@ export default function CoursePage() {
           <p className="mb-8 text-gray-600">{error}</p>
           <button
             onClick={() => navigate("/course")}
-            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
           >
             <ArrowLeft className="mr-2 h-5 w-5" />
             Back to Courses
@@ -146,7 +146,7 @@ export default function CoursePage() {
           <div className="p-8 md:p-12 grid md:grid-cols-3 gap-10">
             <div className="md:col-span-2 space-y-8">
               <div>
-                <h1 className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent leading-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent leading-tight">
                   {course.title}
                 </h1>
                 <p className="text-lg text-gray-600 leading-relaxed">
@@ -155,7 +155,7 @@ export default function CoursePage() {
               </div>
 
               {course.instructor && (
-                <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border border-blue-100">
+                <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl border border-blue-100">
                   <div className="p-3 bg-white rounded-full shadow-sm">
                     <User className="h-6 w-6 text-blue-600" />
                   </div>
@@ -177,7 +177,7 @@ export default function CoursePage() {
                 
                 {course.category && (
                   <div className="group bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl text-center hover:shadow-lg transition-all duration-200 border border-purple-200">
-                    <BookOpen className="h-7 w-7 text-purple-600 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                    <BookOpen className="h-7 w-7 text-green-600 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                     <p className="text-xs text-gray-500 mb-1">Category</p>
                     <p className="text-sm font-bold text-gray-900">{course.category}</p>
                   </div>
@@ -266,7 +266,7 @@ export default function CoursePage() {
                   )}
                 </div>
 
-                <button className="group w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 rounded-xl font-bold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2">
+                <button className="group w-full bg-gradient-to-r from-blue-900 to-teal-800 hover:from-blue-700 hover:to-green-600 text-white py-4 rounded-xl font-bold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2">
                   <Play className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   Enroll Now
                 </button>
