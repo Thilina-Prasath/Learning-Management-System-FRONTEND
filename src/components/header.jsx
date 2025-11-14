@@ -85,7 +85,7 @@ export default function Header() {
             </style>
             <header className="w-full h-[80px] bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 shadow-2xl flex justify-center relative backdrop-blur-sm border-b border-white/20">
                 <GiHamburgerMenu 
-                    className="h-full text-3xl md:hidden absolute left-2 cursor-pointer text-white hover:text-yellow-300 transition-all duration-300 hover:scale-110" 
+                    className="h-full text-3xl md:hidden absolute left-2 cursor-pointer text-white hover:text-yellow-300 transition-all duration-300 hover:scale-110 z-10" 
                     onClick={() => {
                         setSideDrawerOpened(true);
                     }}
@@ -133,94 +133,95 @@ export default function Header() {
                 </div>
                 
                 <div className="border-b border-white/50"></div>
+            </header>
 
-                {/* Mobile Side Drawer */}
-                {SideDrawerOpened && 
+            {/* Mobile Side Drawer - Moved outside header */}
+            {SideDrawerOpened && 
+                <div 
+                    className="fixed top-0 left-0 right-0 bottom-0 h-screen w-screen bg-black/70 backdrop-blur-sm flex md:hidden animate-fadeIn"
+                    style={{ zIndex: 99999 }}
+                    onClick={() => setSideDrawerOpened(false)}
+                >
                     <div 
-                        className="fixed inset-0 h-screen w-full bg-black/70 backdrop-blur-sm flex md:hidden z-[9999] animate-fadeIn"
-                        onClick={() => setSideDrawerOpened(false)} // ✅ Click outside to close
+                        className="w-[350px] max-w-[85vw] bg-gradient-to-b from-white via-gray-50 to-gray-100 h-full shadow-2xl animate-slideIn"
+                        onClick={(e) => e.stopPropagation()}
                     >
-                        <div 
-                            className="w-[350px] max-w-[85vw] bg-gradient-to-b from-white via-gray-50 to-gray-100 h-full shadow-2xl animate-slideIn"
-                            onClick={(e) => e.stopPropagation()} // ✅ Prevent closing when clicking inside menu
-                        >
-                            <div className="w-full h-[80px] bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 flex justify-center items-center relative">
-                                <GiHamburgerMenu 
-                                    className="h-full text-3xl absolute left-2 cursor-pointer text-white hover:text-yellow-300 transition-all duration-300 hover:scale-110" 
-                                    onClick={() => {
-                                        setSideDrawerOpened(false);
-                                    }} 
-                                />
-                                <img 
-                                    onClick={() => {
-                                        navigate("/");
-                                        setSideDrawerOpened(false);
-                                    }} 
-                                    src="/logo.png" 
-                                    alt="Logo" 
-                                    className="w-[60px] h-[60px] object-cover cursor-pointer rounded-full border-2 border-white/30 hover:border-yellow-300 transition-all duration-300 hover:scale-110"
-                                />
-                            </div>
-                            <div className="w-full h-[calc(100%-80px)] flex flex-col items-center gap-2 pt-8 overflow-y-auto">
-                                <Link 
-                                    to="/home" 
-                                    className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200"
-                                    onClick={() => setSideDrawerOpened(false)}
-                                >
-                                     Home
-                                </Link>
-                                <Link 
-                                    to="/about" 
-                                    className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200"
-                                    onClick={() => setSideDrawerOpened(false)}
-                                >
-                                     About
-                                </Link>
-                                <Link 
-                                    to="/course" 
-                                    className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200"
-                                    onClick={() => setSideDrawerOpened(false)}
-                                >
-                                    Course
-                                </Link>
-                                <Link 
-                                    to="/review" 
-                                    className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200"
-                                    onClick={() => setSideDrawerOpened(false)}
-                                >
-                                    Reviews
-                                </Link>
-                                
-                                {isLoggedIn ? (
-                                    <>
-                                        <Link 
-                                            to="/user/profile" 
-                                            className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200 flex items-center justify-center"
-                                            onClick={() => setSideDrawerOpened(false)}
-                                        >
-                                            <CgProfile className="mr-2 text-xl" /> Profile
-                                        </Link>
-                                        <button 
-                                            onClick={handleLogout}
-                                            className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-red-500 hover:to-orange-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200 flex items-center justify-center"
-                                        >
-                                            <IoIosLogOut className="mr-2 text-xl" /> Logout
-                                        </button>
-                                    </>
-                                ) : (
+                        <div className="w-full h-[80px] bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 flex justify-center items-center relative">
+                            <GiHamburgerMenu 
+                                className="h-full text-3xl absolute left-2 cursor-pointer text-white hover:text-yellow-300 transition-all duration-300 hover:scale-110" 
+                                onClick={() => {
+                                    setSideDrawerOpened(false);
+                                }} 
+                            />
+                            <img 
+                                onClick={() => {
+                                    navigate("/");
+                                    setSideDrawerOpened(false);
+                                }} 
+                                src="/logo.png" 
+                                alt="Logo" 
+                                className="w-[60px] h-[60px] object-cover cursor-pointer rounded-full border-2 border-white/30 hover:border-yellow-300 transition-all duration-300 hover:scale-110"
+                            />
+                        </div>
+                        <div className="w-full h-[calc(100%-80px)] flex flex-col items-center gap-2 pt-8 overflow-y-auto">
+                            <Link 
+                                to="/home" 
+                                className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200"
+                                onClick={() => setSideDrawerOpened(false)}
+                            >
+                                 Home
+                            </Link>
+                            <Link 
+                                to="/about" 
+                                className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200"
+                                onClick={() => setSideDrawerOpened(false)}
+                            >
+                                 About
+                            </Link>
+                            <Link 
+                                to="/course" 
+                                className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200"
+                                onClick={() => setSideDrawerOpened(false)}
+                            >
+                                Course
+                            </Link>
+                            <Link 
+                                to="/review" 
+                                className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200"
+                                onClick={() => setSideDrawerOpened(false)}
+                            >
+                                Reviews
+                            </Link>
+                            
+                            {isLoggedIn ? (
+                                <>
                                     <Link 
-                                        to="/login" 
-                                        className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200"
+                                        to="/user/profile" 
+                                        className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200 flex items-center justify-center"
                                         onClick={() => setSideDrawerOpened(false)}
                                     >
-                                        Login
+                                        <CgProfile className="mr-2 text-xl" /> Profile
                                     </Link>
-                                )}
-                            </div>
+                                    <button 
+                                        onClick={handleLogout}
+                                        className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-red-500 hover:to-orange-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200 flex items-center justify-center"
+                                    >
+                                        <IoIosLogOut className="mr-2 text-xl" /> Logout
+                                    </button>
+                                </>
+                            ) : (
+                                <Link 
+                                    to="/login" 
+                                    className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200"
+                                    onClick={() => setSideDrawerOpened(false)}
+                                >
+                                    Login
+                                </Link>
+                            )}
                         </div>
                     </div>
-                }
-            </header>
+                </div>
+            }
         </>
     );
 }
