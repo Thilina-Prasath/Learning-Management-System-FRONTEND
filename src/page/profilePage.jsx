@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/header';
 import { IoIosLogOut } from "react-icons/io";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = import.meta.env.VITE_BACKEND_URL + "/api";
+
 
 // --- ProfileHeader Component (Simplified) ---
 function ProfileHeader({ student, onEditToggle, isEditing }) {
