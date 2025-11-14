@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 export function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [focusedField, setFocusedField] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
 
   // ✅ use environment variable instead of localhost
   const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
@@ -63,14 +63,14 @@ export function LoginPage() {
         <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-pink-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      <div className="relative z-10 flex items-center justify-center px-6 lg:px-10 p-20">
+      <div className="relative z-10 flex items-center justify-center px-6 lg:px-10 py-12 min-h-screen">
         <div className="w-full max-w-md">
           <div className="bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-8">
             <div className="text-center mb-8">
               <div className="w-16 h-16 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-2xl mx-auto">
                 <div className="text-white text-2xl font-bold">🎓</div>
               </div>
-              <h2 className="text-3xl font-bold text-white mb-2">Welcome Back!</h2>
+              <h2 className="text-3xl font-bold text-white mb-2 mt-4">Welcome Back!</h2>
               <p className="text-white/70">Enter your credentials to access your account</p>
             </div>
 
@@ -105,7 +105,7 @@ export function LoginPage() {
                   onBlur={() => setFocusedField(null)}
                   placeholder="Password"
                   disabled={isLoading}
-                  className="w-full h-14 pl-12 pr-4 rounded-2xl bg-white/20 border border-white/30 placeholder-white/60 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 hover:bg-white/25 disabled:opacity-50"
+                  className="w-full h-14 pl-12 pr-12 rounded-2xl bg-white/20 border border-white/30 placeholder-white/60 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 hover:bg-white/25 disabled:opacity-50"
                 />
                 <button
                   type="button"
@@ -143,4 +143,3 @@ export function LoginPage() {
     </div>
   );
 }
-

@@ -89,8 +89,8 @@ export function RegisterPage() {
                 <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-pink-400/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
             </div>
 
-            <div className="relative z-10 flex min-h-screen">
-                <div className="flex-1 flex flex-col justify-center px-12 lg:px-20">
+            <div className="relative z-10 flex flex-col lg:flex-row min-h-screen">
+                <div className="hidden lg:flex flex-1 flex-col justify-center px-12 lg:px-20">
                     <div className="max-w-lg">
                         <div className="mb-8 animate-bounce">
                             <div className="w-20 h-20 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-2xl">
