@@ -137,7 +137,7 @@ export default function Header() {
                 {/* Mobile Side Drawer */}
                 {SideDrawerOpened && 
                     <div 
-                        className="fixed inset-0 h-screen w-full bg-black/70 backdrop-blur-sm flex md:hidden z-50 animate-fadeIn"
+                        className="fixed inset-0 h-screen w-full bg-black/70 backdrop-blur-sm flex md:hidden z-[9999] animate-fadeIn"
                         onClick={() => setSideDrawerOpened(false)} // ✅ Click outside to close
                     >
                         <div 
