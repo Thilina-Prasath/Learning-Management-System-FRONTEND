@@ -83,7 +83,7 @@ export default function Header() {
                 }
                 `}
             </style>
-            <header className="w-full h-[80px] bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 shadow-2xl flex justify-center relative backdrop-blur-sm border-b border-white/20">
+            <header className="w-full h-[80px] bg-gradient-to-r from-blue-900 via-teal-800 to-green-700 shadow-2xl flex justify-center relative backdrop-blur-sm border-b border-white/20">
                 <GiHamburgerMenu 
                     className="h-full text-3xl md:hidden absolute left-2 cursor-pointer text-white hover:text-yellow-300 transition-all duration-300 hover:scale-110 z-10" 
                     onClick={() => {

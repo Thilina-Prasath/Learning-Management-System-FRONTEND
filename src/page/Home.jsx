@@ -87,7 +87,7 @@ function CoursesSection() {
           </p>
           <button 
             onClick={loadCourses}
-            className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            className="bg-gradient-to-r from-blue-900 to-teal-800 hover:from-blue-600 hover:to-teal-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
           >
             Refresh
           </button>
@@ -111,7 +111,7 @@ function BeautifulFooter() {
         <div className="max-w-7xl mx-auto px-6 py-12 relative z-10">
           <div className="mb-10">
             <div className="mb-8">
-              <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-900 via-teal-800 to-green-700 bg-clip-text text-transparent">
                 EduPlatform
               </h3>
               <p className="text-slate-400 text-sm mb-4">Empowering learners worldwide with quality education</p>
@@ -132,7 +132,7 @@ function BeautifulFooter() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
               <div className="group">
                 <h4 className="font-bold mb-5 text-slate-200 text-lg flex items-center gap-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-teal-700 rounded-lg flex items-center justify-center">
                     <BookOpen size={16} />
                   </div>
                   Quick Links
@@ -154,7 +154,7 @@ function BeautifulFooter() {
 
               <div className="group">
                 <h4 className="font-bold mb-5 text-slate-200 text-lg flex items-center gap-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gradient-to-br from-teal-700 to-green-800 rounded-lg flex items-center justify-center">
                     <Award size={16} />
                   </div>
                   Legal
@@ -166,7 +166,7 @@ function BeautifulFooter() {
                         href="#" 
                         className="text-slate-400 hover:text-white text-sm transition-all duration-200 hover:translate-x-2 inline-flex items-center gap-2 group"
                       >
-                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        <span className="w-1.5 h-1.5 bg-teal-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                         {link}
                       </a>
                     </li>
@@ -176,7 +176,7 @@ function BeautifulFooter() {
 
               <div className="group">
                 <h4 className="font-bold mb-5 text-slate-200 text-lg flex items-center gap-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-pink-500 to-red-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-red-500 rounded-lg flex items-center justify-center">
                     <Mail size={16} />
                   </div>
                   Contact Us
@@ -242,7 +242,7 @@ export default function HomePage() {
     <div className="w-full min-h-screen flex flex-col bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">      
       <Header />
       <div className="w-full flex-1 flex flex-col items-center">
-        <div className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 text-white py-8 text-center relative overflow-hidden">
+        <div className="w-full bg-gradient-to-r from-blue-900 via-teal-800 to-green-700 text-white py-8 text-center relative overflow-hidden">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-20 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>

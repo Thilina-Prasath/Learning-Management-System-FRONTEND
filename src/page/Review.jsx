@@ -89,10 +89,10 @@ export default function ReviewsPage() {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800">
+    <div className="w-full min-h-screen flex flex-col bg-gradient-to-br from-blue-900 via-teal-800 to-green-700">
       <Header />
 
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 p-6 gap-8">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-900 via-teal-800 to-green-700 p-6 gap-8">
         <div className="max-w-5xl mx-auto px-2">
           <h1 className="text-5xl text-white font-extrabold mb-4 text-center">
             You Can Share Your Reviews Here ✍️

@@ -24,7 +24,7 @@ function ProfileHeader({ student, onEditToggle, isEditing }) {
               <div className="flex-1 text-center md:text-left">
                 <h1 className="text-5xl font-bold text-white mb-3 animate-fade-in">
                   {student.firstName} {student.lastName}
-                  <span className="block text-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mt-2">
+                  <span className="block text-2xl bg-gradient-to-r from-blue-900 via-cyan-500 to-green-700 bg-clip-text text-transparent mt-2">
                     Learning Enthusiast
                   </span>
                 </h1>
@@ -285,7 +285,7 @@ export default function ProfilePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-teal-800 to-green-700 flex items-center justify-center">
         <div className="animate-spin rounded-full h-16 w-16 border-4 border-white border-t-transparent"></div>
       </div>
     );
@@ -294,11 +294,11 @@ export default function ProfilePage() {
   return (
     <div className="w-full min-h-screen flex flex-col bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
       <Header/>
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-teal-800 to-green-700 relative overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-32 h-32 bg-blue-400/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute top-1/3 right-20 w-48 h-48 bg-purple-400/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-pink-400/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/3 right-20 w-48 h-48 bg-teal-400/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-green-400/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
         <div className="absolute top-1/2 left-1/2 w-60 h-60 bg-cyan-400/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '3s'}}></div>
       </div>
 
@@ -459,7 +459,7 @@ export default function ProfilePage() {
                       {/* Password Change Button */}
                       <button 
                         onClick={handlePasswordChange}
-                        className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                        className="bg-gradient-to-r from-teal-600 to-green-800 hover:from-cyan-500-600 hover:to-green-700 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-2"
                       >
                         <span>🔒</span>
                         Change Password

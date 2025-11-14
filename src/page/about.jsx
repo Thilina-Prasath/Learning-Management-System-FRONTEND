@@ -36,7 +36,7 @@ function BeautifulFooter() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
               <div className="group">
                 <h4 className="font-bold mb-5 text-slate-200 text-lg flex items-center gap-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-teal-700 rounded-lg flex items-center justify-center">
                     <BookOpen size={16} />
                   </div>
                   Quick Links
@@ -48,7 +48,7 @@ function BeautifulFooter() {
                         to={link === 'Course' ? '/course' : '#'} 
                         className="text-slate-400 hover:text-white text-sm transition-all duration-200 hover:translate-x-2 inline-flex items-center gap-2 group"
                       >
-                        <span className="w-1.5 h-1.5 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        <span className="w-1.5 h-1.5 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                         {link}
                       </Link>
                     </li>
@@ -58,7 +58,7 @@ function BeautifulFooter() {
 
               <div className="group">
                 <h4 className="font-bold mb-5 text-slate-200 text-lg flex items-center gap-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-teal-700 rounded-lg flex items-center justify-center">
                     <Award size={16} />
                   </div>
                   Legal
@@ -70,7 +70,7 @@ function BeautifulFooter() {
                         href="#" 
                         className="text-slate-400 hover:text-white text-sm transition-all duration-200 hover:translate-x-2 inline-flex items-center gap-2 group"
                       >
-                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        <span className="w-1.5 h-1.5 bg-green-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                         {link}
                       </a>
                     </li>
@@ -80,7 +80,7 @@ function BeautifulFooter() {
 
               <div className="group">
                 <h4 className="font-bold mb-5 text-slate-200 text-lg flex items-center gap-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-pink-500 to-red-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-red-500 rounded-lg flex items-center justify-center">
                     <Mail size={16} />
                   </div>
                   Contact Us
@@ -88,7 +88,7 @@ function BeautifulFooter() {
                 <ul className="space-y-4">
                   <li className="flex items-center gap-3 text-slate-400 text-sm hover:text-white transition-colors group">
                     <div className="w-8 h-8 bg-slate-700 rounded-lg flex items-center justify-center group-hover:bg-blue-500 transition-colors">
-                      <Mail size={14} className="text-blue-400 group-hover:text-white" />
+                      <Mail size={14} className="text-blue-500 group-hover:text-white" />
                     </div>
                     <span>support@eduplatform.com</span>
                   </li>
@@ -211,7 +211,7 @@ export default function About() {
             ].map((value, index) => (
               <motion.div
                 key={index}
-                className="bg-gradient-to-br from-blue-600 to-purple-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
+                className="bg-gradient-to-br from-blue-600 to-teal-700 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
               >
                 <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
