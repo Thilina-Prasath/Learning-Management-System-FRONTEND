@@ -13,31 +13,32 @@ function CoursesSection() {
   }, []);
 
   const loadCourses = async () => {
-    try {
-      setIsLoading(true);
-      setError(null);
+  try {
+    setIsLoading(true);
+    setError(null);
 
-      console.log('Fetching courses from MongoDB...');
-      
-      const response = await fetch("http://localhost:5000/api/course");
-      
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
+    console.log("Fetching courses from backend:", import.meta.env.VITE_BACKEND_URL);
 
-      const data = await response.json();
-      console.log('Courses received:', data);
-      
-      const coursesArray = Array.isArray(data) ? data : data.courses || [];
-      setCourses(coursesArray);
-      
-    } catch (err) {
-      console.error("Error loading courses:", err);
-      setError(`Failed to load courses: ${err.message}`);
-    } finally {
-      setIsLoading(false);
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/course`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
-  };
+
+    const data = await response.json();
+    console.log("Courses received:", data);
+
+    const coursesArray = Array.isArray(data) ? data : data.courses || [];
+    setCourses(coursesArray);
+
+  } catch (err) {
+    console.error("Error loading courses:", err);
+    setError(`Failed to load courses: ${err.message}`);
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   if (isLoading) {
     return (

@@ -29,6 +29,19 @@ export default function Header() {
         };
     }, []);
 
+    // Prevent body scroll when menu is open
+    useEffect(() => {
+        if (SideDrawerOpened) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [SideDrawerOpened]);
+
     const handleLogout = () => {
         // Clear all data
         localStorage.removeItem('token');
@@ -111,7 +124,6 @@ export default function Header() {
                             <Link to="/user/profile" className="text-white text-[24px] p-3 rounded-full hover:bg-white/20 hover:text-yellow-300 transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/30">
                                 <CgProfile />
                             </Link>
-                            
                         </>
                     ) : (
                         <Link to="/login" className="text-white text-[16px] font-semibold px-6 py-2 rounded-full bg-white/20 hover:bg-white/30 hover:text-yellow-300 transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/30">
@@ -122,9 +134,16 @@ export default function Header() {
                 
                 <div className="border-b border-white/50"></div>
 
+                {/* Mobile Side Drawer */}
                 {SideDrawerOpened && 
-                    <div className="fixed h-screen w-full bg-black/70 backdrop-blur-sm flex md:hidden z-50 animate-fadeIn">
-                        <div className="w-[350px] bg-gradient-to-b from-white via-gray-50 to-gray-100 h-full shadow-2xl animate-slideIn">
+                    <div 
+                        className="fixed inset-0 h-screen w-full bg-black/70 backdrop-blur-sm flex md:hidden z-50 animate-fadeIn"
+                        onClick={() => setSideDrawerOpened(false)} // ✅ Click outside to close
+                    >
+                        <div 
+                            className="w-[350px] max-w-[85vw] bg-gradient-to-b from-white via-gray-50 to-gray-100 h-full shadow-2xl animate-slideIn"
+                            onClick={(e) => e.stopPropagation()} // ✅ Prevent closing when clicking inside menu
+                        >
                             <div className="w-full h-[80px] bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 flex justify-center items-center relative">
                                 <GiHamburgerMenu 
                                     className="h-full text-3xl absolute left-2 cursor-pointer text-white hover:text-yellow-300 transition-all duration-300 hover:scale-110" 
@@ -142,7 +161,7 @@ export default function Header() {
                                     className="w-[60px] h-[60px] object-cover cursor-pointer rounded-full border-2 border-white/30 hover:border-yellow-300 transition-all duration-300 hover:scale-110"
                                 />
                             </div>
-                            <div className="w-full h-[calc(100%-80px)] flex flex-col items-center gap-2 pt-8">
+                            <div className="w-full h-[calc(100%-80px)] flex flex-col items-center gap-2 pt-8 overflow-y-auto">
                                 <Link 
                                     to="/home" 
                                     className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200"
@@ -181,7 +200,12 @@ export default function Header() {
                                         >
                                             <CgProfile className="mr-2 text-xl" /> Profile
                                         </Link>
-                                        
+                                        <button 
+                                            onClick={handleLogout}
+                                            className="w-[80%] text-center text-gray-800 text-[18px] font-semibold py-4 px-6 my-2 rounded-2xl hover:bg-gradient-to-r hover:from-red-500 hover:to-orange-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200 flex items-center justify-center"
+                                        >
+                                            <IoIosLogOut className="mr-2 text-xl" /> Logout
+                                        </button>
                                     </>
                                 ) : (
                                     <Link 
