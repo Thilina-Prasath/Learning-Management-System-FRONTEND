@@ -155,7 +155,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">
-            About <span className="text-purple-600">EduPlatform</span>
+            About <span className="text-teal-500">EduPlatform</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
             EduPlatform is a modern learning space designed to connect students, 
@@ -183,7 +183,7 @@ export default function About() {
             className="bg-white shadow-lg rounded-2xl p-8 border border-gray-200 hover:shadow-2xl transition-all duration-300"
             whileHover={{ scale: 1.03 }}
           >
-            <h2 className="text-2xl font-bold text-purple-600 mb-3">Our Vision</h2>
+            <h2 className="text-2xl font-bold text-teal-600 mb-3">Our Vision</h2>
             <p className="text-gray-600 leading-relaxed">
               To build a global community where students and mentors collaborate, 
               innovate, and achieve excellence. Our vision is to make EduPlatform 
