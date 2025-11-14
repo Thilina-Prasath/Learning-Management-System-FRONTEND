@@ -13,7 +13,7 @@ import {
   Edit2, // Added for the Edit button icon
 } from "lucide-react";
 
-const API_URL = "http://localhost:5000/api"; // backend URL
+const API_URL = import.meta.env.VITE_BACKEND_URL + "/api"; // backend URL
 
 const CourseAdminPanel = () => {
   const navigate = useNavigate();
