@@ -82,7 +82,7 @@ export function RegisterPage() {
   };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 relative overflow-hidden">
+        <div className="min-h-screen bg-gradient-to-br from-blue-900 via-teal-800 to-green-700 relative overflow-hidden">
             <div className="absolute inset-0">
                 <div className="absolute top-10 left-10 w-32 h-32 bg-blue-400/20 rounded-full blur-xl animate-pulse"></div>
                 <div className="absolute top-1/3 right-20 w-48 h-48 bg-purple-400/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '1s'}}></div>

@@ -127,7 +127,7 @@ export default function CoursePage() {
                 className="w-full h-72 md:h-96 object-cover"
               />
             ) : (
-              <div className="w-full h-72 md:h-96 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 flex items-center justify-center">
+              <div className="w-full h-72 md:h-96 bg-gradient-to-br from-blue-900 via-teal-800 to-green-700 flex items-center justify-center">
                 <BookOpen className="h-24 w-24 text-white opacity-50" />
               </div>
             )}

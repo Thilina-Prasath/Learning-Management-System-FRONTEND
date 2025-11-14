@@ -15,7 +15,7 @@ function BeautifulFooter() {
         <div className="max-w-7xl mx-auto px-6 py-12 relative z-10">
           <div className="mb-10">
             <div className="mb-8">
-              <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-900 via-teal-800 to-green-700 bg-clip-text text-transparent">
                 EduPlatform
               </h3>
               <p className="text-slate-400 text-sm mb-4">Empowering learners worldwide with quality education</p>

@@ -163,7 +163,7 @@ export default function MainCoursePage() {
     <div className="w-full min-h-screen flex flex-col items-center bg-gray-50">
       <Header />
       <div className="w-full flex-1 flex flex-col items-center ">
-        <div className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 text-white py-20 text-center">
+        <div className="w-full bg-gradient-to-r from-blue-900 via-teal-800 to-green-700 text-white py-20 text-center">
           <h1 className="text-5xl font-bold mb-6">Welcome to Our Learning Platform</h1>
           <p className="text-xl mb-8">Discover amazing courses and enhance your skills</p>
         </div>

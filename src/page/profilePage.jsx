@@ -9,7 +9,7 @@ const API_URL = import.meta.env.VITE_BACKEND_URL + "/api";
 // --- ProfileHeader Component (Simplified) ---
 function ProfileHeader({ student, onEditToggle, isEditing }) {
   return (
-    <div className="min-h-[300px] bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 relative overflow-hidden flex items-center">
+    <div className="min-h-[300px] bg-gradient-to-br from-blue-900 via-teal-800 to-green-700 relative overflow-hidden flex items-center">
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-32 h-32 bg-blue-400/20 rounded-full blur-xl animate-pulse"></div>
         <div className="absolute top-1/3 right-20 w-48 h-48 bg-purple-400/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '1s'}}></div>
